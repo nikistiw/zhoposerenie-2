@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="dead" sid="531845987776315" static="0" type="number">0</variable>
+        <comment>i had to do this because construct 2 has no globl booleans</comment>
+        <event-group description="" sid="269170504599017" title="essentials">
+            <sub-events>
+                <event-block sid="812812752225844">
+                    <conditions>
+                        <condition behavior="8Direction" id="0" name="Is moving" sid="119072451699822" type="m8" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="896604342220847" type="m8">
+                            <param id="0" name="Instance variable">isInMenu</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="622571896541953" type="m8">
+                            <param id="0" name="Instance variable">steps</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="294712373959004">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="890499605474039" type="m8">
+                            <param id="0" name="Instance variable">steps</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">450</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="928589437798176" type="System">
+                            <param id="0" name="Object to create">badboi</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">random((LayoutWidth/32),(LayoutWidth/32)*32)</param>
+                            <param id="3" name="Y">random((LayoutHeight/32),(LayoutHeight/32)*32)</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="850405448374089" type="m8">
+                            <param id="0" name="Instance variable">steps</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="755407895334390">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="177672192979963" type="badboi">
+                                    <param id="0" name="Object">lava</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="980018232366939" type="badboi">
+                                    <param id="0" name="X">random((LayoutWidth/32),(LayoutWidth/32)*32)</param>
+                                    <param id="1" name="Y">random((LayoutHeight/32),(LayoutHeight/32)*32)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="834473883062140">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="648113450044544" type="bullet">
+                            <param id="0" name="Object">badboi</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="498890958880667" type="badboi">
+                            <param id="0" name="Object">xporb</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="306915780057827" type="badboi" />
+                        <action id="-9" name="Destroy" sid="672521824091147" type="bullet" />
+                    </actions>
+                </event-block>
+                <event-block sid="620878671504502">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="367468392617849" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="553665777708137" type="hp">
+                            <param id="0" name="Width">(128/100)*m8.hp</param>
+                        </action>
+                        <action id="0" name="Set text" sid="599486835535050" type="hpText">
+                            <param id="0" name="Text">m8.hp</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="923666334612531">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="954316724576168" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-20" name="Set layout scale" sid="884410750101197" type="System">
+                            <param id="0" name="Scale">0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="409110795409142">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="909116296528958" type="m8">
+                            <param id="0" name="Object">lava</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="4" name="Set max speed" sid="967708376551113" type="m8">
+                            <param id="0" name="Max Speed">200</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="242939944898484">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="307093869441498" type="m8">
+                            <param id="0" name="Object">lava</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="4" name="Set max speed" sid="867974689665265" type="m8">
+                            <param id="0" name="Max Speed">50</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="247866991630238" type="hp">
+                            <param id="0" name="Width">(128/100)*m8.hp</param>
+                        </action>
+                        <action id="0" name="Set text" sid="201015123417766" type="hpText">
+                            <param id="0" name="Text">m8.hp</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="523956647545387">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="521556641003367" type="System">
+                                    <param id="0" name="Interval (seconds)">0.2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="559367166390464" type="m8">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="749143629621488" title="boss">
+            <sub-events>
+                <event-block sid="341591207940431">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="0" name="On path found" sid="926543843832943" type="boss" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="1" name="Move along path" sid="686689723172341" type="boss" />
+                    </actions>
+                </event-block>
+                <event-block sid="954211766918599">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="847700045535877" type="System">
+                            <param id="0" name="Interval (seconds)">0.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="268604632117879" type="boss">
+                            <param id="0" name="X">m8.x</param>
+                            <param id="1" name="Y">m8.y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="100075277121318">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="220299517422376" type="boss" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="5" name="Add obstacle" sid="199438169907067" type="boss">
+                            <param id="0" name="Obstacle">lava</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="926435375095514" type="enemyHp">
+                            <param id="0" name="Pin to">boss</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="492373330198284" type="lvlTxt">
+                            <param id="0" name="Text">m8.lvl</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="840022297806465">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="261457533374243" type="boss">
+                            <param id="0" name="Object">m8</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="364626267552315">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="158721342040578" type="System">
+                                    <param id="0" name="Interval (seconds)">0.2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="389011793923858" type="m8">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="270759848046407">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="552632265503754" type="bullet">
+                            <param id="0" name="Object">boss</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="630139930413847" type="bullet" />
+                        <action id="-12" name="Subtract from" sid="937326513326746" type="boss">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="161268023577152" type="enemyHp">
+                            <param id="0" name="Width">boss.hp*(96/20)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="943478421463739">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="458414141060181" type="boss">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="964975219880311" type="boss" />
+                        <action id="-9" name="Destroy" sid="904633696809203" type="enemyHp" />
+                        <action id="0" name="Spawn another object" sid="758489548696005" type="boss">
+                            <param id="0" name="Object">xporb</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="312977798025179">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="119378160470079" type="System">
+                                    <param id="0" name="Count">random(5,10)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="234245144711382" type="System">
+                                    <param id="0" name="Object to create">xporb</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">xporb.X+(random(-20,20))</param>
+                                    <param id="3" name="Y">xporb.Y+(random(-20,20))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="933072822928151" title="xp">
+            <sub-events>
+                <event-block sid="573252232989153">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="258541953552870" type="m8">
+                            <param id="0" name="Object">xporb</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="524762730432007" type="xporb" />
+                        <action id="-11" name="Add to" sid="536985017654491" type="m8">
+                            <param id="0" name="Instance variable">xp</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="975718610113742" type="m8">
+                            <param id="0" name="Instance variable">money</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="417424907219666" type="lvl">
+                            <param id="0" name="Width">lvl.width+128/15</param>
+                        </action>
+                        <action id="0" name="Set text" sid="546862241579601" type="money">
+                            <param id="0" name="Text">m8.money</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="736718619406908">
+                    <conditions>
+                        <condition id="9" name="Is overlapping at offset" sid="981533431969869" type="m8">
+                            <param id="0" name="Object">xporb</param>
+                            <param id="1" name="Offset X">32</param>
+                            <param id="2" name="Offset Y">32</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="139773505209695">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="686295155302260" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-22" name="Set angle toward position" sid="502425742731174" type="xporb">
+                                    <param id="0" name="X">m8.X</param>
+                                    <param id="1" name="Y">m8.Y</param>
+                                </action>
+                                <action id="-17" name="Move forward" sid="752125532975705" type="xporb">
+                                    <param id="0" name="Distance">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="592546313131675">
+                    <conditions>
+                        <condition id="-5" name="Compare width" sid="298716335558378" type="lvl">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Width">128</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="184262193515148" type="lvl">
+                            <param id="0" name="Width">0</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="360150120087500" type="m8">
+                            <param id="0" name="Instance variable">lvl</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="782516256391077" type="m8">
+                            <param id="0" name="Instance variable">xp</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="224512082044257" type="lvlTxt">
+                            <param id="0" name="Text">m8.lvl</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="776918283626091">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="581210026246823" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="226397171584001" type="lvl">
+                            <param id="0" name="Width">(128/15)*m8.xp</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="496796382750954" title="dev">
+            <sub-events>
+                <event-block sid="203860720013798">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="865530330384815" type="m8">
+                            <param id="0" name="Instance variable">dev</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="553996221711157">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="230895630958820" type="Keyboard">
+                                    <param id="0" name="Key">77</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-20" name="Set layout scale" sid="496610786258904" type="System">
+                                    <param id="0" name="Scale">0.5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="295969293062295">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="741132809720798" type="Keyboard">
+                                    <param id="0" name="Key">77</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-20" name="Set layout scale" sid="175246971815561" type="System">
+                                    <param id="0" name="Scale">0.1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="567423303249415">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="223591729659128" type="Keyboard">
+                                    <param id="0" name="Key">84</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="400472068843118" type="m8">
+                                    <param id="0" name="X">mouse.x</param>
+                                    <param id="1" name="Y">mouse.y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="536529121999781">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="179235110470497" type="Keyboard">
+                                    <param id="0" name="Key">88</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="684916923331552" type="System">
+                                    <param id="0" name="Object to create">xporb</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="X">Mouse.X</param>
+                                    <param id="3" name="Y">Mouse.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="705689619429018">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="592635093787713" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="512443772156269" type="debug">
+                                    <param id="0" name="Text">m8.money&amp;&quot;:&quot;&amp;m8.lvl&amp;&quot;steps:  &quot;&amp;m8.steps&amp;newline&amp;&quot;coords: X &quot;&amp;round(m8.X)&amp;&quot; Y &quot;&amp;round(m8.Y)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="691883049210637">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="814413479592072" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="486493904111601" type="debug">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="872521130794169" title="menu">
+            <sub-events>
+                <event-block sid="335113529275697">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="372566850828990" type="m8">
+                            <param id="0" name="Instance variable">isInMenu</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="750376095531764" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="726345311260531" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="996704442010425">
+                            <conditions>
+                                <condition id="7" name="Cursor is over object" sid="785411803670103" type="Mouse">
+                                    <param id="0" name="Object">bg2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="230747263937026" type="bg2">
+                                    <param id="0" name="Opacity">90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="362146690625251">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="814941283348698" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="128201729968696" type="bg2">
+                                    <param id="0" name="Opacity">50</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="121547478302540">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="693474915477546" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">dev</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-14" name="Toggle boolean" sid="545848231805670" type="m8">
+                                    <param id="0" name="Instance variable">dev</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="912245722385521">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="739003240933712" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">guideLink</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="17" name="Execute Javascript" sid="173823022154754" type="Browser">
+                                    <param id="0" name="Javascript">&quot;alert(&apos;guide will be added later&apos;);&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="890852448123226">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="799159048940094" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">load</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-37" name="Load" sid="443669829980268" type="System">
+                                    <param id="0" name="Slot">&quot;1&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="531457323544396">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="828273149377321" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">save</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-36" name="Save" sid="579014155634861" type="System">
+                                    <param id="0" name="Slot">&quot;1&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="775719324343130">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="250784937061968" type="m8">
+                            <param id="0" name="Instance variable">isInMenu</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="604163995183382" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="955419664830590" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="582218017545201">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="867094605668402" type="Keyboard">
+                            <param id="0" name="Key">27</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Toggle boolean" sid="777722751377203" type="m8">
+                            <param id="0" name="Instance variable">isInMenu</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="846157586888221" title="controls">
+            <sub-events>
+                <event-block sid="550660978326175">
+                    <conditions>
+                        <condition id="0" name="On click" sid="262227469997893" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="958099958616134" type="m8">
+                            <param id="0" name="Instance variable">isInMenu</param>
+                        </condition>
+                        <condition id="2" inverted="1" name="Mouse button is down" sid="715885467072591" type="Mouse">
+                            <param id="0" name="Mouse button">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="750368192491300" type="m8">
+                            <param id="0" name="Object">bullet</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-22" name="Set angle toward position" sid="948760467170890" type="bullet">
+                            <param id="0" name="X">Mouse.X</param>
+                            <param id="1" name="Y">Mouse.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="708014724470431">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="102091038695565" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="401299538624185" type="m8">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="964301116491849">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="274296256713563" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="375213704244081" type="m8">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="541122011241088">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="645447822423521" type="Keyboard">
+                            <param id="0" name="Key">83</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="261360326785922" type="m8">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="913925772380862">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="189537457067889" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="780224733955551" type="m8">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="381530267669976">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="243244945608564" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="405240815054340" type="cursor">
+                            <param id="0" name="X">Mouse.X</param>
+                            <param id="1" name="Y">Mouse.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="600305249563795" title="death">
+            <sub-events>
+                <event-block sid="911351971570998">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="197376980325148" type="m8">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="799385535444555" type="m8" />
+                        <action id="-9" name="Set value" sid="870291389181291" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="806260342050269" type="Audio">
+                            <param id="0" name="Audio file">aeugh</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="683220476411516" type="eventText">
+                            <param id="0" name="Text">choose(&quot;some n00b was slain&quot;,&quot;u is kill&quot;,&quot;ding dong the wicked bitch is dead&quot;,&quot;poor fella died of dead&quot;)</param>
+                        </action>
+                        <action id="-32" name="Set layer effect parameter" sid="954314949718346" type="System">
+                            <param id="0" name="Layer">0</param>
+                            <param id="1" name="Effect">&quot;RadialBlur&quot;</param>
+                            <param id="2" name="Parameter index">1</param>
+                            <param id="3" name="Value">100</param>
+                        </action>
+                        <action id="-32" name="Set layer effect parameter" sid="495218520891517" type="System">
+                            <param id="0" name="Layer">1</param>
+                            <param id="1" name="Effect">&quot;RadialBlur&quot;</param>
+                            <param id="2" name="Parameter index">1</param>
+                            <param id="3" name="Value">100</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="960778720478409" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="0" name="Set text" sid="198465890935337" type="eventText">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="457921311218136" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-32" name="Set layer effect parameter" sid="165220661126180" type="System">
+                            <param id="0" name="Layer">0</param>
+                            <param id="1" name="Effect">&quot;RadialBlur&quot;</param>
+                            <param id="2" name="Parameter index">1</param>
+                            <param id="3" name="Value">0</param>
+                        </action>
+                        <action id="-32" name="Set layer effect parameter" sid="786718083144834" type="System">
+                            <param id="0" name="Layer">1</param>
+                            <param id="1" name="Effect">&quot;RadialBlur&quot;</param>
+                            <param id="2" name="Parameter index">1</param>
+                            <param id="3" name="Value">0</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="671427571280315" type="System">
+                            <param id="0" name="Object to create">m8</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">random(1024)</param>
+                            <param id="3" name="Y">random(256)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="757377655167883">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="679904735783148" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="262273264864541">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="599522759176586" type="System">
+                                    <param id="0" name="Count">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="i&apos;m gonna have a bad time with this one" sid="649347684150788" title="build">
+            <sub-events>
+                <event-block sid="344512647477805">
+                    <conditions>
+                        <condition id="3" name="On button released" sid="451969928100174" type="Mouse">
+                            <param id="0" name="Mouse button">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="583216748829454" type="System">
+                            <param id="0" name="Layer">4</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="181734976043085" type="m8">
+                            <param id="0" name="Instance variable">building</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="654419513715927">
+                    <conditions>
+                        <condition id="2" name="Mouse button is down" sid="687263180932202" type="Mouse">
+                            <param id="0" name="Mouse button">2</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="472711792890635" type="m8">
+                            <param id="0" name="Instance variable">building</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="535391669679366" type="System">
+                            <param id="0" name="Layer">4</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="533985049916080">
+                    <conditions>
+                        <condition id="0" name="On click" sid="918336099856918" type="Mouse">
+                            <param id="0" name="Mouse button">2</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                        <condition id="7" inverted="1" name="Cursor is over object" sid="198563589598813" type="Mouse">
+                            <param id="0" name="Object">lava</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="921880547617064" type="m8">
+                            <param id="0" name="Instance variable">building</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="297381933208054" type="m8">
+                            <param id="0" name="Instance variable">clickX</param>
+                            <param id="1" name="Value">mouse.X</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="731610074368392" type="m8">
+                            <param id="0" name="Instance variable">clickY</param>
+                            <param id="1" name="Value">mouse.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="820834336841269">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="640893513023989" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">windmill</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="687475225484702" type="m8">
+                            <param id="0" name="Instance variable">building</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="171080633760182" type="m8">
+                            <param id="0" name="Instance variable">money</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="764390158394370" type="System">
+                            <param id="0" name="Object to create">windmill</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">m8.clickX</param>
+                            <param id="3" name="Y">m8.clickY</param>
+                        </action>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="688101133921580" type="windmill">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="128187587485659" type="m8">
+                            <param id="0" name="Instance variable">money</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="951939400236494">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="841393969200113" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">block</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="307104189254125" type="m8">
+                            <param id="0" name="Instance variable">building</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="272557274076058" type="m8">
+                            <param id="0" name="Instance variable">money</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="798812064960593" type="System">
+                            <param id="0" name="Object to create">block</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">m8.clickX</param>
+                            <param id="3" name="Y">m8.clickY</param>
+                        </action>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="919907206409922" type="block">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="182649126387943" type="m8">
+                            <param id="0" name="Instance variable">money</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="704840199557152">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="388259225729816" type="bullet">
+                            <param id="0" name="Object">block</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="859182190896593" type="block">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="791960288080351" type="bullet" />
+                    </actions>
+                </event-block>
+                <event-block sid="294813491838929">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="687849103550757" type="bullet">
+                            <param id="0" name="Object">windmill</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="537689890342176" type="windmill">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="607027495796659" type="bullet" />
+                    </actions>
+                </event-block>
+                <event-block sid="863696237587427">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="797880421849339" type="block">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="380692695432801" type="block" />
+                    </actions>
+                </event-block>
+                <event-block sid="469597154385879">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="258405016025160" type="windmill">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="449762449390171" type="windmill" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
